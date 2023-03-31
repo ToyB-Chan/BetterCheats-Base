@@ -3,10 +3,42 @@
 #
 # @param	$ID$		 	Unique string used to identify this category 
 # @param	$INDEX 			Number used to order categories inside the ui (lowest is first)
+# @param	$LOC_TITLE$		Localization string of the category title
+# @param	$LOC_DESC$		Localization string of the category description
 # @return 					Saves event target of created category (leader type) as 'bc_base_create_category_return'
 ###
 bc_base_create_category = {
+	bc_base_ensure_dummy_country = yes
+	event_target:bc_base_global_dummy_country = {
+		create_leader = {
+			class = scientist
+			name = $LOC_TITLE$
+			immortal = yes
+			effect = {
+				set_leader_flag = BC_CAT
+				set_leader_flag = BC_CAT_ID_$ID$
+				set_leader_flag = BC_CAT_TITLE
+				set_leader_flag = BC_OWNER_@FROMFROM
+				set_variable = {
+					which = index
+					value = $INDEX$
+				}
+				save_event_target_as = bc_base_create_category_return
+			}
+		}
 
+		create_leader = {
+			class = scientist
+			name = $LOC_DESC$
+			immortal = yes
+			effect = {
+				set_leader_flag = BC_CAT
+				set_leader_flag = BC_CAT_ID_$ID$
+				set_leader_flag = BC_CAT_DESC
+				set_leader_flag = BC_OWNER_@FROMFROM
+			}
+		}
+	}
 }
 
 ###
@@ -16,7 +48,18 @@ bc_base_create_category = {
 # @return 					Saves event target of category (leader type) as 'bc_base_get_category_return'
 ###
 bc_base_get_category = {
+	bc_base_ensure_dummy_country = yes
+	event_target:bc_base_global_dummy_country = {
+		every_owned_leader = {
+			limit = {
+				bc_base_is_category_with_id = { ID = $ID$ }
+				bc_base_is_category_title = yes
+				has_leader_flag = BC_OWNER_@FROMFROM
+			}
 
+			save_event_target_as = bc_base_get_category_return
+		}
+	}
 }
 
 ###

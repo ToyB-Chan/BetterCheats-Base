@@ -2,7 +2,7 @@
 # Returns true if scope is a bettercheats category
 ###
 bc_base_is_category = {
-	
+	has_leader_flag = BC_CAT
 }
 
 ###
@@ -11,5 +11,19 @@ bc_base_is_category = {
 # @param	$ID$ 			Unique string used to identify the category
 ###
 bc_base_is_category_with_id = {
-	
+	has_leader_flag = BC_CAT_ID_$ID$
+}
+
+###
+# Returns true if scope is a bettercheats category that represents a title
+###
+bc_base_is_category_title = {
+	has_leader_flag = BC_CAT_TITLE
+}
+
+###
+# Returns true if scope is a bettercheats category that represents a decsription
+###
+bc_base_is_category_desc = {
+	has_leader_flag = BC_CAT_DECS
 }

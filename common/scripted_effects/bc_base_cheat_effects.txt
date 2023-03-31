@@ -4,6 +4,8 @@
 # @param	$ID$		 	Unique string used to identify this cheat
 # @param	$CHEAT_TYPE$	The type of the cheat (see '/common/scripted_variables/bc_base_cheat_types.txt' for more)
 # @param	$INDEX$ 		Number used to order categories inside the ui (lowest is first)
+# @param	$LOC_TITLE$		Localization string of the cheat title
+# @param	$LOC_DESC$		Localization string of the cheat description
 # @return 					Saves event target of created cheat (leader type) as 'bc_base_create_cheat_return'
 ###
 bc_base_create_cheat = {
@@ -31,7 +33,7 @@ bc_base_clear_all_cheats = {
 # Enables the cheat in scope
 ###
 bc_base_enable_cheat = {
-
+	
 }
 
 ###
