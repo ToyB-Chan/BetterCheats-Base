@@ -1,0 +1,29 @@
+###
+# Called when categories need to be created
+#
+# THIS		Country where the categories need to be created
+###
+on_bc_base_create_categories = {
+	
+}
+
+###
+# Called when cheats need to be created
+#
+# THIS		Country where the cheats need to be created
+# ROOT		Category that is currently selected
+###
+on_bc_base_create_cheats = {
+
+}
+
+###
+# Called when a cheat needs to be executed
+#
+# THIS		Country where the cheats need to be executed
+# FROM		Country that requested the execution
+# ROOT		Cheat that is executing	
+###
+on_bc_base_execute_cheat = {
+
+}

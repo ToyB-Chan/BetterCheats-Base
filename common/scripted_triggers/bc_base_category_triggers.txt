@@ -1,0 +1,15 @@
+###
+# Returns true if scope is a bettercheats category
+###
+bc_base_is_category = {
+	
+}
+
+###
+# Returns true if scope is a bettercheats category with a given id
+#
+# @param	$ID$ 			Unique string used to identify the category
+###
+bc_base_is_category_with_id = {
+	
+}

@@ -1,0 +1,4 @@
+# Cheat types enum
+@bc_base_cheat_type_bool = 1
+@bc_base_cheat_type_multi = 2
+@bc_base_cheat_type_scalar = 3

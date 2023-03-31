@@ -1,0 +1,24 @@
+###
+# Returns true if scope is a bettercheats cheat
+###
+bc_base_is_cheat = {
+	
+}
+
+###
+# Returns true if scope is a bettercheats cheat with a given id
+#
+# @param	$ID$ 			Unique string used to identify the cheat
+###
+bc_base_is_cheat_with_id = {
+	
+}
+
+###
+# Returns true if scope is a bettercheats cheat of a specified type
+#
+# @param	$CHEAT_TYPE$ 	The type of the cheat (see '/common/scripted_variables/bc_base_cheat_types.txt' for more)
+###
+bc_base_is_cheat_of_type = {
+	
+}

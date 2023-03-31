@@ -1,0 +1,41 @@
+###
+# Adds a bettercheats category to the country in scope
+#
+# @param	$ID$		 	Unique string used to identify this category 
+# @param	$INDEX 			Number used to order categories inside the ui (lowest is first)
+# @return 					Saves event target of created category (leader type) as 'bc_base_create_category_return'
+###
+bc_base_create_category = {
+
+}
+
+###
+# Returns a bettercheats category of the country in scope
+#
+# @param	$ID$ 			Unique string used to identify the category 
+# @return 					Saves event target of category (leader type) as 'bc_base_get_category_return'
+###
+bc_base_get_category = {
+
+}
+
+###
+# Clears all bettercheats categories of the country in scope
+###
+bc_base_clear_all_categories = {
+
+}
+
+###
+# Enables the category in scope
+###
+bc_base_enable_category = {
+
+}
+
+###
+# Disables the category in scope
+###
+bc_base_cheat_category = {
+
+}
