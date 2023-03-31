@@ -9,7 +9,51 @@
 # @return 					Saves event target of created cheat (leader type) as 'bc_base_create_cheat_return'
 ###
 bc_base_create_cheat = {
+	create_leader = {
+		class = bc_base_dummy_leader
+		immortal = yes
+		name = CHT_$ID$
+		effect = {
+			set_leader_flag = BC_CHT
+			set_leader_flag = BC_CHT_HEAD
+			set_leader_flag = BC_CHT_ID_$ID$
 
+			set_leader_flag = BC_CHT_ENABLED
+			set_variable = {
+				which = index
+				value = $INDEX$
+			}
+
+			set_variable = {
+				which = type
+				value = $CHEAT_TYPE$
+			}
+
+			save_event_target_as = bc_base_create_cheat_return
+		}
+	}
+
+	create_leader = {
+		class = bc_base_dummy_leader
+		immortal = yes
+		name = $LOC_TITLE$
+		effect = {
+			set_leader_flag = BC_CHT
+			set_leader_flag = BC_CHT_TITLE
+			set_leader_flag = BC_CHT_ID_$ID$
+		}
+	}
+
+	create_leader = {
+		class = bc_base_dummy_leader
+		immortal = yes
+		name = $LOC_DESC$
+		effect = {
+			set_leader_flag = BC_CHT
+			set_leader_flag = BC_CHT_DESC
+			set_leader_flag = BC_CHT_ID_$ID$
+		}
+	}
 }
 
 ###
@@ -19,26 +63,41 @@ bc_base_create_cheat = {
 # @return 					Saves event target of cheat (leader type) as 'bc_base_get_cheat_return'
 ###
 bc_base_get_cheat = {
+	every_owned_leader = {
+		limit = {
+			bc_base_is_cheat_with_id = {ID = $ID$}
+			bc_base_is_cheat_head = yes
+		}
 
+		save_event_target_as = bc_base_get_cheat_return
+	}
 }
 
 ###
 # Clears all bettercheats cheats of the country in scope
 ###
 bc_base_clear_all_cheats = {
+	every_owned_leader = {
+		limit = {
+			bc_base_is_cheat = yes
+		}
 
+		kill_leader = {
+			show_notification = no
+		}
+	}
 }
 
 ###
 # Enables the cheat in scope
 ###
 bc_base_enable_cheat = {
-	
+	set_leader_flag = BC_CHT_ENABLED
 }
 
 ###
 # Disables the cheat in scope
 ###
 bc_base_disable_cheat = {
-
+	remove_leader_flag = BC_CHT_ENABLED
 }

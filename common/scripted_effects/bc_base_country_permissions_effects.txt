@@ -1,0 +1,69 @@
+###
+# Grands scoped country host permissions
+###
+bc_base_grand_host_permission = {
+	set_country_flag = BC_PERM_HOST
+}
+
+###
+# Revokes scoped country host permissions
+###
+bc_base_revoke_host_permission = {
+	remove_country_flag = BC_PERM_HOST
+}
+
+###
+# Grands scoped country local cheat permissions
+###
+bc_base_grand_local_cheat_permission = {
+	set_country_flag = BC_PERM_LOCAL_CHEAT
+}
+
+###
+# Revokes scoped country local cheat permissions
+###
+bc_base_revoke_local_cheat_permission = {
+	remove_country_flag = BC_PERM_LOCAL_CHEAT
+}
+
+###
+# Grands scoped country remote cheat permissions
+###
+bc_base_grand_remote_cheat_permission = {
+	set_country_flag = BC_PERM_REMOTE_CHEAT
+}
+
+###
+# Revokes scoped country remote cheat permissions
+###
+bc_base_revoke_remote_cheat_permission = {
+	remove_country_flag = BC_PERM_REMOTE_CHEAT
+}
+
+###
+# Grands scoped country planet edit permissions
+###
+bc_base_grand_planet_edit_permission = {
+	set_country_flag = BC_PERM_PLANET_EDIT
+}
+
+###
+# Revokes scoped country planet edit permissions
+###
+bc_base_revoke_planet_edit_permission = {
+	remove_country_flag = BC_PERM_PLANET_EDIT
+}
+
+###
+# Grands scoped country system edit permissions
+###
+bc_base_grand_system_edit_permission = {
+	set_country_flag = BC_PERM_SYSTEM_EDIT
+}
+
+###
+# Revokes scoped country system edit permissions
+###
+bc_base_revoke_system_edit_permission = {
+	remove_country_flag = BC_PERM_SYSTEM_EDIT
+}

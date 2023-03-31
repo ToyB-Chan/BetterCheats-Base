@@ -1,0 +1,24 @@
+bc_base_dummy_leader = {
+	can_govern_planet = no
+	can_research = no
+	can_lead_navy = no
+	can_lead_army = no
+	can_rule_empire = no
+	can_be_envoy = no
+
+	max_trait_points = 0
+	can_have_traits = no
+
+	resources = {
+		category = leader_admirals
+		cost = {
+			energy = 0
+		}
+
+		upkeep = {
+			energy = 0
+		}
+	}
+	
+	default_category = general 
+}

@@ -8,35 +8,44 @@
 # @return 					Saves event target of created category (leader type) as 'bc_base_create_category_return'
 ###
 bc_base_create_category = {
-	bc_base_ensure_dummy_country = yes
-	event_target:bc_base_global_dummy_country = {
-		create_leader = {
-			class = scientist
-			name = $LOC_TITLE$
-			immortal = yes
-			effect = {
-				set_leader_flag = BC_CAT
-				set_leader_flag = BC_CAT_ID_$ID$
-				set_leader_flag = BC_CAT_TITLE
-				set_leader_flag = BC_OWNER_@FROMFROM
-				set_variable = {
-					which = index
-					value = $INDEX$
-				}
-				save_event_target_as = bc_base_create_category_return
-			}
-		}
+	create_leader = {
+		class = bc_base_dummy_leader
+		immortal = yes
+		name = CAT_$ID$
+		effect = {
+			set_leader_flag = BC_CAT
+			set_leader_flag = BC_CAT_HEAD
+			set_leader_flag = BC_CAT_ID_$ID$
 
-		create_leader = {
-			class = scientist
-			name = $LOC_DESC$
-			immortal = yes
-			effect = {
-				set_leader_flag = BC_CAT
-				set_leader_flag = BC_CAT_ID_$ID$
-				set_leader_flag = BC_CAT_DESC
-				set_leader_flag = BC_OWNER_@FROMFROM
+			set_leader_flag = BC_CAT_ENABLED
+			set_variable = {
+				which = index
+				value = $INDEX$
 			}
+
+			save_event_target_as = bc_base_create_category_return
+		}
+	}
+
+	create_leader = {
+		class = bc_base_dummy_leader
+		immortal = yes
+		name = $LOC_TITLE$
+		effect = {
+			set_leader_flag = BC_CAT
+			set_leader_flag = BC_CAT_TITLE
+			set_leader_flag = BC_CAT_ID_$ID$
+		}
+	}
+
+	create_leader = {
+		class = bc_base_dummy_leader
+		immortal = yes
+		name = $LOC_DESC$
+		effect = {
+			set_leader_flag = BC_CAT
+			set_leader_flag = BC_CAT_DESC
+			set_leader_flag = BC_CAT_ID_$ID$
 		}
 	}
 }
@@ -48,17 +57,13 @@ bc_base_create_category = {
 # @return 					Saves event target of category (leader type) as 'bc_base_get_category_return'
 ###
 bc_base_get_category = {
-	bc_base_ensure_dummy_country = yes
-	event_target:bc_base_global_dummy_country = {
-		every_owned_leader = {
-			limit = {
-				bc_base_is_category_with_id = { ID = $ID$ }
-				bc_base_is_category_title = yes
-				has_leader_flag = BC_OWNER_@FROMFROM
-			}
-
-			save_event_target_as = bc_base_get_category_return
+	every_owned_leader = {
+		limit = {
+			bc_base_is_category_with_id = {ID = $ID$}
+			bc_base_is_category_head = yes
 		}
+
+		save_event_target_as = bc_base_get_category_return
 	}
 }
 
@@ -66,19 +71,27 @@ bc_base_get_category = {
 # Clears all bettercheats categories of the country in scope
 ###
 bc_base_clear_all_categories = {
+	every_owned_leader = {
+		limit = {
+			bc_base_is_category = yes
+		}
 
+		kill_leader = {
+			show_notification = no
+		}
+	}
 }
 
 ###
 # Enables the category in scope
 ###
 bc_base_enable_category = {
-
+	set_leader_flag = BC_CAT_ENABLED
 }
 
 ###
 # Disables the category in scope
 ###
-bc_base_cheat_category = {
-
+bc_base_disable_category = {
+	remove_leader_flag = BC_CAT_ENABLED
 }

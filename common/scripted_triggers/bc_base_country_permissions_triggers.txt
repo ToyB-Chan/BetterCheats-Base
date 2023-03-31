@@ -1,0 +1,34 @@
+###
+# Returns true if the scoped country has host permissions
+###
+bc_base_has_host_permssions = {
+	has_country_flag = BC_PERM_HOST
+}
+
+###
+# Returns true if the scoped country has local cheat permissions
+###
+bc_base_has_local_cheat_permssions = {
+	has_country_flag = BC_PERM_LOCAL_CHEAT
+}
+
+###
+# Returns true if the scoped country has remote cheat permissions
+###
+bc_base_has_remote_cheat_permssions = {
+	has_country_flag = BC_PERM_REMOTE_CHEAT
+}
+
+###
+# Returns true if the scoped country has planet edit permissions
+###
+bc_base_has_planet_edit_permssions = {
+	has_country_flag = BC_PERM_PLANET_EDIT
+}
+
+###
+# Returns true if the scoped country has system edit permissions
+###
+bc_base_has_system_edit_permssions = {
+	has_country_flag = BC_PERM_SYSTEM_EDIT
+}

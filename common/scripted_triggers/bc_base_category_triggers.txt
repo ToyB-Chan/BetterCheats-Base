@@ -15,6 +15,13 @@ bc_base_is_category_with_id = {
 }
 
 ###
+# Returns true if scope is a bettercheats category that represents the head
+###
+bc_base_is_category_head = {
+	has_leader_flag = BC_CAT_HEAD
+}
+
+###
 # Returns true if scope is a bettercheats category that represents a title
 ###
 bc_base_is_category_title = {
@@ -26,4 +33,11 @@ bc_base_is_category_title = {
 ###
 bc_base_is_category_desc = {
 	has_leader_flag = BC_CAT_DECS
+}
+
+###
+# Returns true if scope is a bettercheats category that is enabled
+###
+bc_base_is_category_enabled = {
+	has_leader_flag = BC_CAT_ENABLED
 }
