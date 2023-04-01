@@ -48,6 +48,8 @@ bc_base_create_category = {
 			set_leader_flag = BC_CAT_ID_$ID$
 		}
 	}
+
+	log = "bc_base: created category with id $ID$"
 }
 
 ###

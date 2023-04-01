@@ -20,5 +20,5 @@ bc_base_dummy_leader = {
 		}
 	}
 	
-	default_category = general 
+	default_category = leader_admirals 
 }

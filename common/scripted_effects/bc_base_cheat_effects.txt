@@ -6,6 +6,7 @@
 # @param	$INDEX$ 		Number used to order categories inside the ui (lowest is first)
 # @param	$LOC_TITLE$		Localization string of the cheat title
 # @param	$LOC_DESC$		Localization string of the cheat description
+# @param	$CATEGORY_ID$	Unique string of the category this cheat is part of
 # @return 					Saves event target of created cheat (leader type) as 'bc_base_create_cheat_return'
 ###
 bc_base_create_cheat = {
@@ -17,6 +18,7 @@ bc_base_create_cheat = {
 			set_leader_flag = BC_CHT
 			set_leader_flag = BC_CHT_HEAD
 			set_leader_flag = BC_CHT_ID_$ID$
+			set_leader_flag = BC_CHT_CAT_ID_$CATEGORY_ID$
 
 			set_leader_flag = BC_CHT_ENABLED
 			set_variable = {
@@ -41,6 +43,7 @@ bc_base_create_cheat = {
 			set_leader_flag = BC_CHT
 			set_leader_flag = BC_CHT_TITLE
 			set_leader_flag = BC_CHT_ID_$ID$
+			set_leader_flag = BC_CHT_CAT_ID_$CATEGORY_ID$
 		}
 	}
 
@@ -52,8 +55,11 @@ bc_base_create_cheat = {
 			set_leader_flag = BC_CHT
 			set_leader_flag = BC_CHT_DESC
 			set_leader_flag = BC_CHT_ID_$ID$
+			set_leader_flag = BC_CHT_CAT_ID_$CATEGORY_ID$
 		}
 	}
+
+	log = "bc_base: created cheat with id $ID$ belonging to category with id $CATEGORY_ID$"
 }
 
 ###
@@ -100,4 +106,30 @@ bc_base_enable_cheat = {
 ###
 bc_base_disable_cheat = {
 	remove_leader_flag = BC_CHT_ENABLED
+}
+
+###
+# Sets the value of a cheat via its id of the country in scope
+#
+# @param	$ID$		 	Unique string used to identify the cheat 
+# @param	$VALUE$			The value of the cheat to set it to
+###
+bc_base_set_cheat_value = {
+	set_variable = {
+		which = bc_cht_id_$ID$_value
+		value = $VALUE$
+	}
+}
+
+###
+# Returns the value of a cheat via its id of the country in scope
+#
+# @param	$ID$		 	Unique string used to identify the cheat 
+# @return 					Saves value of cheat as 'bc_base_get_cheat_value_return'
+###
+bc_base_get_cheat_value = {
+	set_variable = {
+		which = bc_base_get_cheat_value_return
+		value = bc_cht_id_$ID$_value
+	}
 }

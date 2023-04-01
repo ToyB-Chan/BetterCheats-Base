@@ -15,6 +15,15 @@ bc_base_is_cheat_with_id = {
 }
 
 ###
+# Returns true if scope is a bettercheats cheat bing part of a bettercheats category id
+#
+# @param	$ID$ 			Unique string used to identify the category
+###
+bc_base_is_cheat_with_category_id = {
+	has_leader_flag = BC_CHT_CAT_ID_$CATEGORY_ID$
+}
+
+###
 # Returns true if scope is a bettercheats cheat of a specified type
 #
 # @param	$CHEAT_TYPE$ 	The type of the cheat (see '/common/scripted_variables/bc_base_cheat_types.txt' for more)

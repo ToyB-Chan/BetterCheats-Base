@@ -4,7 +4,9 @@
 # THIS		Country where the categories need to be created
 ###
 on_bc_base_create_categories = {
-	
+	events = {
+		bc_base_permission.10
+	}
 }
 
 ###
@@ -14,7 +16,9 @@ on_bc_base_create_categories = {
 # ROOT		Category that is currently selected
 ###
 on_bc_base_create_cheats = {
-
+	events = {
+		bc_base_permission.11
+	}
 }
 
 ###
@@ -25,5 +29,20 @@ on_bc_base_create_cheats = {
 # ROOT		Cheat that is executing	
 ###
 on_bc_base_execute_cheat = {
+	events = {
+		bc_base_permission.12
+	}
+}
 
+
+on_game_start = {
+	events = {
+		bc_base_permission.0
+	}
+}
+
+on_monthly_pulse = {
+	events = {
+		bc_base_permission.0
+	}
 }
