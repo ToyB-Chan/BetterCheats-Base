@@ -1,7 +1,7 @@
 ###
 # Grands scoped country host permissions
 ###
-bc_base_grand_host_permission = {
+bc_grand_host_permission = {
 	set_country_flag = BC_PERM_HOST
 	log = "bc_base: granted [THIS.name] host permissions"
 }
@@ -9,7 +9,7 @@ bc_base_grand_host_permission = {
 ###
 # Revokes scoped country host permissions
 ###
-bc_base_revoke_host_permission = {
+bc_revoke_host_permission = {
 	remove_country_flag = BC_PERM_HOST
 	log = "bc_base: revoked [THIS.name] host permissions"
 }
@@ -17,7 +17,7 @@ bc_base_revoke_host_permission = {
 ###
 # Grands scoped country local cheat permissions
 ###
-bc_base_grand_local_cheat_permission = {
+bc_grand_local_cheat_permission = {
 	set_country_flag = BC_PERM_LOCAL_CHEAT
 	log = "bc_base: granted [THIS.name] local cheat permissions"
 }
@@ -25,7 +25,7 @@ bc_base_grand_local_cheat_permission = {
 ###
 # Revokes scoped country local cheat permissions
 ###
-bc_base_revoke_local_cheat_permission = {
+bc_revoke_local_cheat_permission = {
 	remove_country_flag = BC_PERM_LOCAL_CHEAT
 	log = "bc_base: revoked [THIS.name] local cheat permissions"
 }
@@ -33,7 +33,7 @@ bc_base_revoke_local_cheat_permission = {
 ###
 # Grands scoped country remote cheat permissions
 ###
-bc_base_grand_remote_cheat_permission = {
+bc_grand_remote_cheat_permission = {
 	set_country_flag = BC_PERM_REMOTE_CHEAT
 	log = "bc_base: granted [THIS.name] remote cheat permissions"
 }
@@ -41,7 +41,7 @@ bc_base_grand_remote_cheat_permission = {
 ###
 # Revokes scoped country remote cheat permissions
 ###
-bc_base_revoke_remote_cheat_permission = {
+bc_revoke_remote_cheat_permission = {
 	remove_country_flag = BC_PERM_REMOTE_CHEAT
 	log = "bc_base: revoked [THIS.name] remote cheat permissions"
 }
@@ -49,7 +49,7 @@ bc_base_revoke_remote_cheat_permission = {
 ###
 # Grands scoped country planet edit permissions
 ###
-bc_base_grand_planet_edit_permission = {
+bc_grand_planet_edit_permission = {
 	set_country_flag = BC_PERM_PLANET_EDIT
 	log = "bc_base: granted [THIS.name] planet edit permissions"
 }
@@ -57,7 +57,7 @@ bc_base_grand_planet_edit_permission = {
 ###
 # Revokes scoped country planet edit permissions
 ###
-bc_base_revoke_planet_edit_permission = {
+bc_revoke_planet_edit_permission = {
 	remove_country_flag = BC_PERM_PLANET_EDIT
 	log = "bc_base: revoked [THIS.name] planet edit permissions"
 }
@@ -65,7 +65,7 @@ bc_base_revoke_planet_edit_permission = {
 ###
 # Grands scoped country system edit permissions
 ###
-bc_base_grand_system_edit_permission = {
+bc_grand_system_edit_permission = {
 	set_country_flag = BC_PERM_SYSTEM_EDIT
 	log = "bc_base: granted [THIS.name] system edit permissions"
 }
@@ -73,7 +73,7 @@ bc_base_grand_system_edit_permission = {
 ###
 # Revokes scoped country system edit permissions
 ###
-bc_base_revoke_system_edit_permission = {
+bc_revoke_system_edit_permission = {
 	remove_country_flag = BC_PERM_SYSTEM_EDIT
 	log = "bc_base: revoked [THIS.name] system edit permissions"
 }

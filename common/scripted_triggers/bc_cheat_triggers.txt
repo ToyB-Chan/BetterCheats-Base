@@ -1,7 +1,7 @@
 ###
 # Returns true if scope is a bettercheats cheat
 ###
-bc_base_is_cheat = {
+bc_is_cheat = {
 	has_leader_flag = BC_CHT
 }
 
@@ -10,7 +10,7 @@ bc_base_is_cheat = {
 #
 # @param	$ID$ 			Unique string used to identify the cheat
 ###
-bc_base_is_cheat_with_id = {
+bc_is_cheat_with_id = {
 	has_leader_flag = BC_CHT_ID_$ID$
 }
 
@@ -19,16 +19,16 @@ bc_base_is_cheat_with_id = {
 #
 # @param	$ID$ 			Unique string used to identify the category
 ###
-bc_base_is_cheat_with_category_id = {
+bc_is_cheat_with_category_id = {
 	has_leader_flag = BC_CHT_CAT_ID_$CATEGORY_ID$
 }
 
 ###
 # Returns true if scope is a bettercheats cheat of a specified type
 #
-# @param	$CHEAT_TYPE$ 	The type of the cheat (see '/common/scripted_variables/bc_base_cheat_types.txt' for more)
+# @param	$CHEAT_TYPE$ 	The type of the cheat (see '/common/scripted_variables/bc_cheat_types.txt' for more)
 ###
-bc_base_is_cheat_of_type = {
+bc_is_cheat_of_type = {
 	check_variable = {
 		which = type
 		value = $CHEAT_TYPE$
@@ -38,27 +38,27 @@ bc_base_is_cheat_of_type = {
 ###
 # Returns true if scope is a bettercheats cheat that represents the head
 ###
-bc_base_is_cheat_head = {
+bc_is_cheat_head = {
 	has_leader_flag = BC_CHT_HEAD
 }
 
 ###
 # Returns true if scope is a bettercheats cheat that represents a title
 ###
-bc_base_is_cheat_title = {
+bc_is_cheat_title = {
 	has_leader_flag = BC_CHT_TITLE
 }
 
 ###
 # Returns true if scope is a bettercheats cheat that represents a decsription
 ###
-bc_base_is_cheat_desc = {
+bc_is_cheat_desc = {
 	has_leader_flag = BC_CHT_DECS
 }
 
 ###
 # Returns true if scope is a bettercheats cheat that is enabled
 ###
-bc_base_is_cheat_enabled = {
+bc_is_cheat_enabled = {
 	has_leader_flag = BC_CHT_ENABLED
 }

@@ -1,0 +1,300 @@
+namespace = bc_permissions
+
+# Check if any hosts exists
+event = {
+	id = bc_permissions.0
+	is_triggered_only = yes
+
+	trigger = {
+		not = {
+			any_country = {
+				bc_has_host_permssions = yes
+			}
+		}
+	}
+
+	immediate = {
+		event = {
+			id = bc_host_permission.1
+		}	
+	}
+}
+
+# Give the first player host
+event = {
+	id = bc_permissions.1
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = applying_host
+		every_country = {
+			limit = {
+				is_ai = no
+				has_global_flag = applying_host
+			}
+
+			bc_grand_host_permission = yes
+			bc_set_cheat_value = {
+				ID = bc_host_permission
+				VALUE = 1
+			}
+
+			remove_global_flag = applying_host
+			country_event = {
+				id = bc_permissions.100
+			}
+		}
+	}
+}
+
+# Add permission category
+country_event = {
+	id = bc_permissions.10
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		bc_has_host_permssions = yes
+	}
+
+	immediate = {
+		bc_create_category = {
+			ID = bc_permissions
+			INDEX = 0
+			LOC_TITLE = "Permission"
+			LOC_DESC = "Used to change permissions of different players"
+		}
+	}
+}
+
+# Add permission cheats
+country_event = {
+	id = bc_permissions.11
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		ROOT.bc_is_category_with_id = {
+			ID = bc_permissions
+		}
+	}
+
+	immediate = {
+		bc_create_cheat = {
+			ID = bc_host_permission
+			CHEAT_TYPE = @bc_cheat_type_bool
+			INDEX = 0
+			LOC_TITLE = "Host permission"
+			LOC_DESC = "Gives the player host permissions"
+			CATEGORY_ID = bc_permissions
+		}
+
+		bc_create_cheat = {
+			ID = bc_local_cheat_permission
+			CHEAT_TYPE = @bc_cheat_type_bool
+			INDEX = 1
+			LOC_TITLE = "Local cheat permission"
+			LOC_DESC = "Gives the player local cheat permissions"
+			CATEGORY_ID = bc_permissions
+		}
+
+		bc_create_cheat = {
+			ID = bc_remote_cheat_permission
+			CHEAT_TYPE = @bc_cheat_type_bool
+			INDEX = 2
+			LOC_TITLE = "Remote cheat permission"
+			LOC_DESC = "Gives the player remote cheat permissions"
+			CATEGORY_ID = bc_permissions
+		}
+
+		bc_create_cheat = {
+			ID = bc_planet_edit_permission
+			CHEAT_TYPE = @bc_cheat_type_bool
+			INDEX = 3
+			LOC_TITLE = "Planet edit permission"
+			LOC_DESC = "Gives the player planet edit permissions"
+			CATEGORY_ID = bc_permissions
+		}
+
+		bc_create_cheat = {
+			ID = bc_system_edit_permission
+			CHEAT_TYPE = @bc_cheat_type_bool
+			INDEX = 4
+			LOC_TITLE = "System edit permission"
+			LOC_DESC = "Gives the player system edit permissions"
+			CATEGORY_ID = bc_permissions
+		}
+	}
+}
+
+# Execute a permission cheat
+country_event = {
+	id = bc_permissions.12
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		ROOT.bc_is_cheat_with_category_id = {
+			ID = bc_permissions
+		}
+	}
+
+	immediate = {
+
+		# Host permission
+		if = {
+			limit = {
+				ROOT.bc_is_cheat_with_id = {
+					ID = bc_host_permission
+				}
+			}
+
+			switch = {
+				trigger = check_variable = {
+					which = ROOT.value
+				}
+
+				0 = {
+					bc_revoke_host_permission = yes
+				}
+
+				1 = {
+					bc_grand_host_permission = yes
+				}
+			}
+
+			bc_set_cheat_value = {
+				ID = bc_host_permission
+				VALUE = ROOT.value
+			}
+		}
+		
+		# Local cheat permission
+		if = {
+			limit = {
+				ROOT.bc_is_cheat_with_id = {
+					ID = bc_local_cheat_permission
+				}
+			}
+
+			switch = {
+				trigger = check_variable = {
+					which = ROOT.value
+				}
+
+				0 = {
+					bc_revoke_local_cheat_permission = yes
+				}
+
+				1 = {
+					bc_grand_local_cheat_permission = yes
+				}
+			}
+
+			bc_set_cheat_value = {
+				ID = bc_local_cheat_permission
+				VALUE = ROOT.value
+			}
+		}
+
+		# Remote cheat permission
+		if = {
+			limit = {
+				ROOT.bc_is_cheat_with_id = {
+					ID = bc_remote_cheat_permission
+				}
+			}
+
+			switch = {
+				trigger = check_variable = {
+					which = ROOT.value
+				}
+
+				0 = {
+					bc_revoke_remote_cheat_permission = yes
+				}
+
+				1 = {
+					bc_grand_remote_cheat_permission = yes
+				}
+			}
+
+			bc_set_cheat_value = {
+				ID = bc_remote_cheat_permission
+				VALUE = ROOT.value
+			}
+		}
+
+		# Planet edit permssion
+		if = {
+			limit = {
+				ROOT.bc_is_cheat_with_id = {
+					ID = bc_planet_edit_permission
+				}
+			}
+
+			switch = {
+				trigger = check_variable = {
+					which = ROOT.value
+				}
+
+				0 = {
+					bc_revoke_planet_edit_permission = yes
+				}
+
+				1 = {
+					bc_grand_planet_edit_permission = yes
+				}
+			}
+
+			bc_set_cheat_value = {
+				ID = bc_planet_edit_permission
+				VALUE = ROOT.value
+			}
+		}
+
+		# System edit permission
+		if = {
+			limit = {
+				ROOT.bc_is_cheat_with_id = {
+					ID = bc_system_edit_permission
+				}
+			}
+
+			switch = {
+				trigger = check_variable = {
+					which = ROOT.value
+				}
+
+				0 = {
+					bc_revoke_system_edit_permission = yes
+				}
+
+				1 = {
+					bc_grand_system_edit_permission = yes
+				}
+			}
+
+			bc_set_cheat_value = {
+				ID = bc_system_edit_permission
+				VALUE = ROOT.value
+			}
+		}
+
+		country_event = {
+			id = bc_permissions.100
+		}
+	}
+}
+
+# Notify player about its new permission status
+country_event = {
+	id = bc_permissions.100
+	is_triggered_only = yes
+	hide_window = no
+	title = "Your permissions have been updated!"
+
+	trigger = {
+		is_ai = no
+	}
+}

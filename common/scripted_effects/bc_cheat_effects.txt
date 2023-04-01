@@ -1,17 +1,17 @@
 ###
-# Adds a bettercheats cheat to the country in scope
+# Adds a bettercheats cheat to the country in scope (cheats are transient)
 #
 # @param	$ID$		 	Unique string used to identify this cheat
-# @param	$CHEAT_TYPE$	The type of the cheat (see '/common/scripted_variables/bc_base_cheat_types.txt' for more)
+# @param	$CHEAT_TYPE$	The type of the cheat (see '/common/scripted_variables/bc_cheat_types.txt' for more)
 # @param	$INDEX$ 		Number used to order categories inside the ui (lowest is first)
 # @param	$LOC_TITLE$		Localization string of the cheat title
 # @param	$LOC_DESC$		Localization string of the cheat description
 # @param	$CATEGORY_ID$	Unique string of the category this cheat is part of
-# @return 					Saves event target of created cheat (leader type) as 'bc_base_create_cheat_return'
+# @return 					Saves event target of created cheat (leader type) as 'bc_create_cheat_return'
 ###
-bc_base_create_cheat = {
+bc_create_cheat = {
 	create_leader = {
-		class = bc_base_dummy_leader
+		class = bc_dummy_leader
 		immortal = yes
 		name = CHT_$ID$
 		effect = {
@@ -31,12 +31,17 @@ bc_base_create_cheat = {
 				value = $CHEAT_TYPE$
 			}
 
-			save_event_target_as = bc_base_create_cheat_return
+			set_variable = {
+				which = value
+				value = FROM.bc_cht_id_$ID$_value
+			}
+
+			save_event_target_as = bc_create_cheat_return
 		}
 	}
 
 	create_leader = {
-		class = bc_base_dummy_leader
+		class = bc_dummy_leader
 		immortal = yes
 		name = $LOC_TITLE$
 		effect = {
@@ -48,7 +53,7 @@ bc_base_create_cheat = {
 	}
 
 	create_leader = {
-		class = bc_base_dummy_leader
+		class = bc_dummy_leader
 		immortal = yes
 		name = $LOC_DESC$
 		effect = {
@@ -59,33 +64,36 @@ bc_base_create_cheat = {
 		}
 	}
 
-	log = "bc_base: created cheat with id $ID$ belonging to category with id $CATEGORY_ID$"
+	log = "bc_base: created cheat '$ID$' belonging to category '$CATEGORY_ID$'"
 }
 
 ###
 # Returns a bettercheats cheat of the country in scope
 #
 # @param	$ID$		 	Unique string used to identify the cheat 
-# @return 					Saves event target of cheat (leader type) as 'bc_base_get_cheat_return'
+# @return 					Saves event target of cheat (leader type) as 'bc_get_cheat_return'
 ###
-bc_base_get_cheat = {
+bc_get_cheat = {
 	every_owned_leader = {
 		limit = {
-			bc_base_is_cheat_with_id = {ID = $ID$}
-			bc_base_is_cheat_head = yes
+			bc_is_cheat_with_id = {
+				ID = $ID$
+			}
+			
+			bc_is_cheat_head = yes
 		}
 
-		save_event_target_as = bc_base_get_cheat_return
+		save_event_target_as = bc_get_cheat_return
 	}
 }
 
 ###
 # Clears all bettercheats cheats of the country in scope
 ###
-bc_base_clear_all_cheats = {
+bc_clear_all_cheats = {
 	every_owned_leader = {
 		limit = {
-			bc_base_is_cheat = yes
+			bc_is_cheat = yes
 		}
 
 		kill_leader = {
@@ -95,16 +103,16 @@ bc_base_clear_all_cheats = {
 }
 
 ###
-# Enables the cheat in scope
+# Enables the cheat in scope (cheats are transient so yeah...)
 ###
-bc_base_enable_cheat = {
+bc_enable_cheat = {
 	set_leader_flag = BC_CHT_ENABLED
 }
 
 ###
-# Disables the cheat in scope
+# Disables the cheat in scope (cheats are transient so yeah...)
 ###
-bc_base_disable_cheat = {
+bc_disable_cheat = {
 	remove_leader_flag = BC_CHT_ENABLED
 }
 
@@ -114,22 +122,24 @@ bc_base_disable_cheat = {
 # @param	$ID$		 	Unique string used to identify the cheat 
 # @param	$VALUE$			The value of the cheat to set it to
 ###
-bc_base_set_cheat_value = {
+bc_set_cheat_value = {
 	set_variable = {
 		which = bc_cht_id_$ID$_value
 		value = $VALUE$
 	}
+
+	log = "bc_base: set value of cheat '$ID$' to [THIS.bc_cht_id_$ID$_value]"
 }
 
 ###
 # Returns the value of a cheat via its id of the country in scope
 #
 # @param	$ID$		 	Unique string used to identify the cheat 
-# @return 					Saves value of cheat as 'bc_base_get_cheat_value_return'
+# @return 					Saves value of cheat as 'bc_get_cheat_value_return'
 ###
-bc_base_get_cheat_value = {
+bc_get_cheat_value = {
 	set_variable = {
-		which = bc_base_get_cheat_value_return
+		which = bc_get_cheat_value_return
 		value = bc_cht_id_$ID$_value
 	}
 }

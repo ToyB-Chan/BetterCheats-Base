@@ -1,15 +1,15 @@
 ###
-# Adds a bettercheats category to the country in scope
+# Adds a bettercheats category to the country in scope (categories are transient)
 #
 # @param	$ID$		 	Unique string used to identify this category 
 # @param	$INDEX 			Number used to order categories inside the ui (lowest is first)
 # @param	$LOC_TITLE$		Localization string of the category title
 # @param	$LOC_DESC$		Localization string of the category description
-# @return 					Saves event target of created category (leader type) as 'bc_base_create_category_return'
+# @return 					Saves event target of created category (leader type) as 'bc_create_category_return'
 ###
-bc_base_create_category = {
+bc_create_category = {
 	create_leader = {
-		class = bc_base_dummy_leader
+		class = bc_dummy_leader
 		immortal = yes
 		name = CAT_$ID$
 		effect = {
@@ -23,12 +23,12 @@ bc_base_create_category = {
 				value = $INDEX$
 			}
 
-			save_event_target_as = bc_base_create_category_return
+			save_event_target_as = bc_create_category_return
 		}
 	}
 
 	create_leader = {
-		class = bc_base_dummy_leader
+		class = bc_dummy_leader
 		immortal = yes
 		name = $LOC_TITLE$
 		effect = {
@@ -39,7 +39,7 @@ bc_base_create_category = {
 	}
 
 	create_leader = {
-		class = bc_base_dummy_leader
+		class = bc_dummy_leader
 		immortal = yes
 		name = $LOC_DESC$
 		effect = {
@@ -49,33 +49,36 @@ bc_base_create_category = {
 		}
 	}
 
-	log = "bc_base: created category with id $ID$"
+	log = "bc_base: created category '$ID$'"
 }
 
 ###
 # Returns a bettercheats category of the country in scope
 #
 # @param	$ID$ 			Unique string used to identify the category 
-# @return 					Saves event target of category (leader type) as 'bc_base_get_category_return'
+# @return 					Saves event target of category (leader type) as 'bc_get_category_return'
 ###
-bc_base_get_category = {
+bc_get_category = {
 	every_owned_leader = {
 		limit = {
-			bc_base_is_category_with_id = {ID = $ID$}
-			bc_base_is_category_head = yes
+			bc_is_category_with_id = {
+				ID = $ID$
+			}
+			
+			bc_is_category_head = yes
 		}
 
-		save_event_target_as = bc_base_get_category_return
+		save_event_target_as = bc_get_category_return
 	}
 }
 
 ###
 # Clears all bettercheats categories of the country in scope
 ###
-bc_base_clear_all_categories = {
+bc_clear_all_categories = {
 	every_owned_leader = {
 		limit = {
-			bc_base_is_category = yes
+			bc_is_category = yes
 		}
 
 		kill_leader = {
@@ -85,15 +88,15 @@ bc_base_clear_all_categories = {
 }
 
 ###
-# Enables the category in scope
+# Enables the category in scope (categories are transient so yeah...)
 ###
-bc_base_enable_category = {
+bc_enable_category = {
 	set_leader_flag = BC_CAT_ENABLED
 }
 
 ###
-# Disables the category in scope
+# Disables the category in scope (categories are transient so yeah...)
 ###
-bc_base_disable_category = {
+bc_disable_category = {
 	remove_leader_flag = BC_CAT_ENABLED
 }

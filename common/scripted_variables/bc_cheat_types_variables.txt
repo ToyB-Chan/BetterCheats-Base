@@ -1,0 +1,11 @@
+# Cheat types enum
+@bc_cheat_type_bool = 1
+@bc_cheat_type_scalar = 2
+@bc_cheat_type_tier_3 = 3
+@bc_cheat_type_tier_4 = 4
+@bc_cheat_type_tier_5 = 5
+@bc_cheat_type_tier_6 = 6
+@bc_cheat_type_tier_7 = 7
+@bc_cheat_type_tier_8 = 8
+@bc_cheat_type_tier_9 = 9
+@bc_cheat_type_tier_10 = 10
